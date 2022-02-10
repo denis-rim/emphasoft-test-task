@@ -1,0 +1,85 @@
+.container {
+  max-width: 500px;
+  width: 100%;
+  background-color: aliceblue;
+  padding: 1.5rem 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.forms {
+  padding: 1rem;
+}
+
+.title {
+  position: relative;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.title::before {
+  position: absolute;
+  content: "";
+  width: 35px;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--pimary-color);
+  border-radius: 20px;
+}
+
+.inputField {
+  position: relative;
+  margin-top: 1.5rem;
+  height: 2rem;
+  width: 100%;
+}
+
+.loginInput {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0.75rem 0.25rem;
+  font-size: 1.125rem;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid transparent;
+}
+
+.loginInput:is(:focus, :valid) {
+  border-bottom: 2px solid var(--pimary-color);
+}
+
+.showPassword {
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.loginButton {
+  margin-top: 3.5rem;
+  border: none;
+  background-color: #9898fa;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.loginButton:hover {
+  background-color: var(--pimary-color);
+}
