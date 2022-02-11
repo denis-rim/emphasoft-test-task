@@ -65,7 +65,7 @@ function LoginPage() {
               <p>{errors.password?.message}</p>
             </div>
 
-            <button className={styles.loginButton}>Login</button>
+            <button type='submit' className={styles.loginButton}>Login</button>
           </form>
         </div>
       </div>
