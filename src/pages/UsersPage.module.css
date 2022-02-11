@@ -1,7 +1,30 @@
 .container {
   display: flex;
-  align-items: start;
-  justify-content: center;
-  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
   height: 100vh;
+}
+
+.logoutContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  margin: 1rem;
+}
+
+.logoutButton {
+  border: none;
+  background-color: #9898fa;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.55rem 0.75rem;
+  text-transform: uppercase;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }

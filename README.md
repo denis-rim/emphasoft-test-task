@@ -1,3 +1,7 @@
+## Project run [HERE](https://emphasoft-test-task.herokuapp.com/)
+
+### Run `npm install` to install all dependencies.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

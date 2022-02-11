@@ -8,10 +8,13 @@ export interface UserModel {
   is_active: boolean;
   last_login: Date | null;
   is_superuser: boolean;
+  password: string;
 }
 
+export type UserModelResponse = Omit<UserModel, "password">;
+
 export const getAllUsers = (token: string) => {
-  return api.get<null, { data: UserModel[] }>("/api/v1/users/", {
+  return api.get<null, { data: UserModelResponse[] }>("/api/v1/users/", {
     headers: {
       Authorization: `token ${token}`,
     },

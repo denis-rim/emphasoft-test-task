@@ -1,10 +1,9 @@
 .filterContainer {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 3rem 0.5rem;
+  padding: 1.5rem 0.5rem;
 }
 
 .filterInputContainer {
@@ -21,11 +20,10 @@
   margin-bottom: 0.5rem;
 }
 
-.filterInput {
+.input {
   height: 100%;
-  width: 25%;
   padding: 0.55rem 0.25rem;
-  font-size: 1.125rem;
+  font-size: 1rem;
   border: none;
   outline: none;
   background-color: inherit;
@@ -33,14 +31,14 @@
   border-top: 2px solid transparent;
 }
 
-.filterInput:is(:focus) {
+.input:is(:focus) {
   border-bottom: 2px solid var(--pimary-color);
 }
 
 .tableContainer {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   overflow: hidden;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
@@ -73,7 +71,7 @@ td {
 }
 
 .tableHeader {
-  background-color: #f5f5f5;
+  background-color: #ececec;
   text-transform: uppercase;
   border-bottom: 1px solid #ccc;
 }
@@ -94,9 +92,8 @@ td {
   margin: 0;
   line-height: 1;
   font-size: 1rem;
-  color: #9898fa;
+  color: var(--pimary-color);
   cursor: pointer;
-
   transition: transform 0.05s ease-out;
 }
 

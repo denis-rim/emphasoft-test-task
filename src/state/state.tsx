@@ -14,7 +14,9 @@ import { LoginUserInput } from "../services/validation";
 interface AuthContextType {
   token: string;
   logInUser: (user: LoginUserInput) => void;
+  logOutUser: () => void;
   error: string | null;
+  setError: (error: string | null) => void;
 }
 
 const AuthContext = createContext<AuthContextType>(null!);
@@ -40,8 +42,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  // Login user and set token in localStorage
   async function logInUser(body: LoginUserInput) {
     try {
+      setError(null);
+
       const { data } = await login(body);
 
       setToken(data.token);
@@ -66,8 +71,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  // Logout user and remove token from localStorage
+  function logOutUser() {
+    setToken("");
+
+    localStorage.removeItem("token");
+
+    navigate("/login");
+  }
+
   return (
-    <AuthContext.Provider value={{ token, logInUser, error }}>
+    <AuthContext.Provider
+      value={{ token, logInUser, logOutUser, error, setError }}
+    >
       {children}
     </AuthContext.Provider>
   );

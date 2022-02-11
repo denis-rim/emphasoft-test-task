@@ -8,10 +8,14 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #f9fafbff;
+  margin: 0 auto;
+}
+
 .app-container {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f9fafbff;
 }

@@ -1,18 +1,22 @@
 import { MouseEventHandler, useCallback, useState } from "react";
 
-import { UserModel } from "../../services/api/handlers/users";
+import {
+  UserModel,
+  UserModelResponse,
+} from "../../services/api/handlers/users";
 
 import styles from "./SortableTable.module.css";
 
 type SortKeys = keyof UserModel[][0];
 type SortOrder = "asc" | "desc";
 
+// sortedKey - key of the column to sort by
 function sortData({
   tableData,
   sortKey,
   reverse,
 }: {
-  tableData: UserModel[];
+  tableData: UserModelResponse[];
   sortKey: SortKeys;
   reverse: boolean;
 }) {
@@ -28,7 +32,7 @@ function sortData({
   return sortedData;
 }
 
-function SortableTable({ data }: { data: UserModel[] }) {
+function SortableTable({ data }: { data: UserModelResponse[] }) {
   const [sortKey, setSortKey] = useState<SortKeys>("id");
   const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
   const [filter, setFilter] = useState<string>("");
@@ -43,23 +47,25 @@ function SortableTable({ data }: { data: UserModel[] }) {
     { key: "is_superuser", label: "Is Superuser" },
   ];
 
+  // useCallback will be usefully when we will have a lot of data
   const sortedData = useCallback(
     () => sortData({ tableData: data, sortKey, reverse: sortOrder === "desc" }),
     [data, sortKey, sortOrder]
   );
 
+  // This function change sort order and set new sort key
+  // Changing sort order or sort key will trigger sortedData function
   function changeSort(key: SortKeys) {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-
     setSortKey(key);
   }
 
   return (
     <div className={styles.filterContainer}>
       <div className={styles.filterInputContainer}>
-        <label>Filter show with:</label>
+        <label>Filter by username:</label>
         <input
-          className={styles.filterInput}
+          className={styles.input}
           name="filter"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
@@ -76,6 +82,7 @@ function SortableTable({ data }: { data: UserModel[] }) {
                     {row.label}{" "}
                     <SortButton
                       columnKey={row.key}
+                      // onClick will trigger changeSort function
                       onClick={() => changeSort(row.key)}
                       sortOrder={sortOrder}
                       sortKey={sortKey}
@@ -104,8 +111,8 @@ function SortableTable({ data }: { data: UserModel[] }) {
                     <td>{person.is_active.toString()}</td>
                     <td>
                       {person.last_login
-                        ? person.last_login.toString()
-                        : "No data"}
+                        ? new Date(person.last_login).toLocaleString()
+                        : "-"}
                     </td>
                     <td>{person.is_superuser.toString()}</td>
                   </tr>
