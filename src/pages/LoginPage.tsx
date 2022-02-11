@@ -39,7 +39,7 @@ function LoginPage() {
                 type="text"
                 placeholder="Enter your username"
                 required
-                defaultValue="test_super"
+                defaultValue="username"
                 {...register("username")}
               />
               <p>{errors.username?.message}</p>
@@ -53,7 +53,7 @@ function LoginPage() {
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 required
-                defaultValue="Nf<U4f<rDbtDxAPn"
+                defaultValue="******"
                 {...register("password")}
               />
               <span
@@ -65,7 +65,9 @@ function LoginPage() {
               <p>{errors.password?.message}</p>
             </div>
 
-            <button type='submit' className={styles.loginButton}>Login</button>
+            <button type="submit" className={styles.loginButton}>
+              Login
+            </button>
           </form>
         </div>
       </div>

@@ -42,7 +42,7 @@ function UsersPage() {
   }, []);
 
   if (isLoading) {
-    return <div style={{ fontSize: "4rem" }}>Loading...</div>;
+    return <div style={{ fontSize: "3rem" }}>Loading...</div>;
   }
 
   return (
