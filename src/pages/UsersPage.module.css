@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 100vw;
   margin: 1rem;
 }
@@ -27,4 +27,8 @@
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+}
+
+.logoutButton:hover {
+  background-color: var(--pimary-color);
 }

@@ -52,7 +52,7 @@ function UsersPage() {
           Logout
         </button>
       </div>
-      <p style={{ color: "red", padding: "0.5rem" }}>{error} hello</p>
+      <p style={{ color: "red" }}>{error}</p>
       <SortableTable data={users} />
     </div>
   );
