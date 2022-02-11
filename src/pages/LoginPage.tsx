@@ -39,7 +39,6 @@ function LoginPage() {
                 type="text"
                 placeholder="Enter your username"
                 required
-                defaultValue="username"
                 {...register("username")}
               />
               <p>{errors.username?.message}</p>
@@ -53,7 +52,6 @@ function LoginPage() {
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 required
-                defaultValue="******"
                 {...register("password")}
               />
               <span
